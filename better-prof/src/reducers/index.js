@@ -1,10 +1,12 @@
-import { REGISTER_START } from "../actions/auth";
+import { REGISTER_START, REGISTER_SUCCESS, REGISTER_ERROR } from "../actions/auth";
+
+
 
 export const initialState = {
   error: "",
-  students: []
+  students: [],
+  signinUp: false,
 };
-
 
 export const reducer = (state = initialState, action) => {
   console.log("REDUCER STATE", state);
@@ -12,8 +14,25 @@ export const reducer = (state = initialState, action) => {
     case REGISTER_START:
       return {
         ...state,
-        error: ""
+        error: "",
+        signinUp: true,
       };
+
+      case REGISTER_SUCCESS:
+        return {
+          ...state,
+          error:"",
+          signinUp: false,
+          token: localStorage.getItem("token"),
+        };
+
+        case REGISTER_ERROR:
+          return {
+            ...state,
+            error: action.payload,
+            signinUp:false,
+          }
+          
     default:
       return state;
   }
