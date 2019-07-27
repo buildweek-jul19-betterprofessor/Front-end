@@ -4,6 +4,9 @@ import Container from "@material-ui/core/Container";
 import AppBar from "@material-ui/core/AppBar";
 import Button from "@material-ui/core/Button";
 
+
+import StudentsList from ".//StudentsList";
+
 const Home = () => {
   return (
     <Container>
@@ -16,6 +19,9 @@ const Home = () => {
           <Button>Register</Button>
         </Link>
       </AppBar>
+      <div>
+        <StudentsList/>
+      </div>
     </Container>
   );
 };
