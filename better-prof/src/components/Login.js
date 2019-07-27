@@ -1,35 +1,36 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { register } from '../actions/auth';
+import { login } from '../actions/auth';
 
-class Register extends Component {
+
+class Login extends Component {
     state = {
         username: "",
-        password: ""    }
+        password: ""
+    }
 
-
-    changeHandler = (e) =>{
+    changeHandler = (e) => {
         this.setState({ [e.currentTarget.name]: e.currentTarget.value });
-      }; 
+    };
 
-    register = (e) =>{
+    login = (e) => {
         e.preventDefault();
-        this.props.register(this.state);
+        this.props.login(this.state);
     }
 
     render() {
-        console.log(this.state, "from Register")
+        console.log(this.state, "from Login")
         return (
             <div>
-                <h2>Please Register Below:</h2>
-                <form onSubmit={this.register}>
+                <h1>Please Login:</h1>
+                <form onSubmit={this.login}>
                     <input type="text" placeholder="Username" value={this.state.username} name="username" onChange={this.changeHandler}></input>
                     <input type="text" placeholder="Password" value={this.state.password} name="password" onChange={this.changeHandler}></input>
-                <button>Submit</button>
+                    <button>Login</button>
                 </form>
             </div>
         );
     }
 }
 
-export default connect(null, {register} ) (Register);
+export default connect(null, {login} ) (Login);
