@@ -22,7 +22,7 @@ class Login extends Component {
         console.log(this.state, "from Login")
         return (
             <div>
-                <h1>Please Login:</h1>
+                <h2>Already a member? Please Login:</h2>
                 <form onSubmit={this.login}>
                     <input type="text" placeholder="Username" value={this.state.username} name="username" onChange={this.changeHandler}></input>
                     <input type="text" placeholder="Password" value={this.state.password} name="password" onChange={this.changeHandler}></input>
