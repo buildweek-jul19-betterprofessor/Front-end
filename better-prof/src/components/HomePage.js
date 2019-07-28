@@ -11,15 +11,19 @@ const Home = () => {
   return (
     <Container>
       <AppBar>
-        <h1>Better Professor</h1>
-        <Link to="/login">
-          <Button>Login</Button>
-        </Link>
-        <Link to="/register">
-          <Button>Register</Button>
-        </Link>
+        <div className="app-bar">
+          <h1>Better Professor</h1>
+            <div className="menu-buttons">
+              <Link to="/login">
+                <Button>Login</Button>
+              </Link>
+              <Link to="/register">
+                <Button>Register</Button>
+              </Link>
+            </div>
+        </div>
       </AppBar>
-      <div>
+      <div className="main-content">
         <StudentsList/>
       </div>
     </Container>
