@@ -10,7 +10,7 @@ class StudentsList extends Component {
     render() {
         return (
             <div>
-                "Inside Students List"
+                <h2>All Students:</h2>
             </div>
         );
     }
