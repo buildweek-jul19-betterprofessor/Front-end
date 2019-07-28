@@ -1,10 +1,11 @@
-import { REGISTER_START, REGISTER_SUCCESS, REGISTER_ERROR } from "../actions/auth";
+import { REGISTER_START, REGISTER_SUCCESS, REGISTER_ERROR, GET_STUDENTS_START, GET_STUDENTS_SUCCESS, GET_STUDENTS_ERROR } from "../actions/auth";
 
 
 
 export const initialState = {
   error: "",
   students: [],
+  studentsRetrieve: false,
   signinUp: false,
 };
 
@@ -31,6 +32,24 @@ export const reducer = (state = initialState, action) => {
             ...state,
             error: action.payload,
             signinUp:false,
+          };
+        case GET_STUDENTS_START:
+          return {
+            ...state,
+            error:"",
+            studentsRetrieve: true,
+          };
+        case GET_STUDENTS_SUCCESS:
+          return {
+            ...state,
+            error: "",
+            studentsRetrieve: false,
+            students: action.payload
+          };
+        case GET_STUDENTS_ERROR:
+          return{
+            ...state,
+            error: action.payload,
           }
           
     default:
