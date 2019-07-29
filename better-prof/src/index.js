@@ -13,7 +13,7 @@ const store = createStore(
 )
 
 ReactDOM.render(
-<Provider store={store}>≈
+<Provider store={store}>
 <Router>
 <App />
 </Router>
