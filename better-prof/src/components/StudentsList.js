@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
-import { getStudents } from "../actions/auth";
+import { getStudents } from "../actions/index";
+import Student from "./Student"
 
 
 class StudentsList extends Component {
@@ -11,6 +12,7 @@ class StudentsList extends Component {
         return (
             <div>
                 <h2>All Students:</h2>
+                <Student students={this.props.students}></Student>
             </div>
         );
     }

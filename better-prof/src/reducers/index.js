@@ -1,5 +1,6 @@
-import { REGISTER_START, REGISTER_SUCCESS, REGISTER_ERROR, GET_STUDENTS_START, GET_STUDENTS_SUCCESS, GET_STUDENTS_ERROR } from "../actions/auth";
+import { REGISTER_START, REGISTER_SUCCESS, REGISTER_ERROR, } from "../actions/auth";
 
+import {GET_STUDENTS_START, GET_STUDENTS_SUCCESS, GET_STUDENTS_ERROR } from "../actions/index"
 
 
 export const initialState = {
