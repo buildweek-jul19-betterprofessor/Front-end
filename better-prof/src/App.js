@@ -1,16 +1,8 @@
 import React from "react";
-import { BrowserRouter as Router,  Route, } from 'react-router-dom';
-import Header from "./components/Header";
+import Header from "./components/HeaderBar";
 
 
 import "./App.css";
-
-import HomePage from "./components/HomePage";
-import Login from "./components/Login";
-import StudentList from "./components/StudentsList";
-import Register from "./components/Register";
-
-import './App.css';
 
 import Register from './components/Register';
 import { BrowserRouter as Router, Route, link } from 'react-router-dom';
