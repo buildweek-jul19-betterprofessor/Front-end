@@ -1,5 +1,4 @@
-import axios from "axios"
-import { BetterProfApiBase } from "../components/Utils";
+import axios from "axios";
 
 export const REGISTER_START = "REGISTER_START";
 export const REGISTER_SUCCESS = "REGISTER_SUCCESS";

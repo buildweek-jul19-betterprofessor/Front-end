@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getStudents } from '../actions/index';
 import Student from './Student';
+import { studentsDataAccess } from '../actions/index';
 
 class StudentsList extends Component {
   componentDidMount() {
