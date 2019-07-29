@@ -7,6 +7,7 @@ class Student extends Component {
             <div>
                 <h3>Name: {this.props.studentName}</h3>
                 <p>Email: {this.props.email}</p>
+                <button onClick={this.props.deleteStudent}>Delete</button>
             </div>
         );
     }
