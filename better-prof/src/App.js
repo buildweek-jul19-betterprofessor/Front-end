@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router,  Route, } from 'react-router-dom';
-import Header from "./components/Header";
+import HeaderBar from "./components/HeaderBar";
 
 
 import "./App.css";
@@ -15,7 +15,7 @@ import Register from "./components/Register";
 const App = () => {
   return (
     <div>
-      <Header/>
+      <HeaderBar/>
       <Route exact path='/' component={HomePage}/>
         <Route exact path='/login' component={Login} />
         <Route exact path='/student-list' component={StudentList} />
