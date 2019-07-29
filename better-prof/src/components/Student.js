@@ -5,8 +5,8 @@ class Student extends Component {
     render() {
         return (
             <div>
-                <h3>{this.props.studentName}</h3>
-                <p>{this.props.email}</p>
+                <h3>Name: {this.props.studentName}</h3>
+                <p>Email: {this.props.email}</p>
             </div>
         );
     }

@@ -11,15 +11,11 @@ class StudentsList extends Component {
     return (
       <div>
         <h2>All Students:</h2>
-        <h3>Example Student</h3>{' '}
-        <p>
-          Name: First Last <br /> Email: example@email.com{' '}
-        </p>
         {this.props.students.map(student => {
           return (
             <Student
             key={student.id}
-              studentName={`${student.firstname}${student.lastname}`}
+              studentName={`${student.firstname} ${student.lastname}`}
               email={student.email}
             />
           );
