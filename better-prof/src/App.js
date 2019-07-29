@@ -10,7 +10,13 @@ import Login from "./components/Login";
 import StudentList from "./components/StudentsList";
 import Register from "./components/Register";
 
+import './App.css';
 
+import Register from './components/Register';
+import { BrowserRouter as Router, Route, link } from 'react-router-dom';
+import HomePage from './components/HomePage';
+import Login from './components/Login';
+import StudentList from './components/StudentsList';
 
 const App = () => {
   return (
