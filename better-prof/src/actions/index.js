@@ -36,7 +36,8 @@ export const studentsDataAccess = () => dispatch => {
 };
 
 export const addNewStudent = () => newStudent => dispatch => {
-  dispatch({ type: ADD_STUDENT_START })
+  dispatch({ type: ADD_STUDENT_START });
+  axios
     .post('/students', newStudent)
     .then(response => {
       dispatch({ type: ADD_STUDENT_SUCCESS, payload: response.data });
