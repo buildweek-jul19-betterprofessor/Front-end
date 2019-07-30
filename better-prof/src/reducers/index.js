@@ -20,12 +20,29 @@ export const initialState = {
   error: '',
   students: [],
   studentsRetrieve: false,
-  signinUp: false
+  signinUp: false,
+  addStudent:false 
 };
 
 export const reducer = (state = initialState, action) => {
   console.log('REDUCER STATE', state);
   switch (action.type) {
+    case ADD_STUDENT_START:
+      return{
+        ...state,
+        addStudent:true
+      }
+      case ADD_STUDENT_SUCCESS:
+      return{
+        ...state,
+        students: action.payload
+      }
+      case ADD_STUDENT_FAIL:
+      return{
+        ...state,
+        addStudent:false,
+        error:action.payload
+      }
     case REGISTER_START:
       return {
         ...state,

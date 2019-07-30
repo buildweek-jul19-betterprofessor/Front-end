@@ -5,14 +5,34 @@ import Student from './Student';
 import { studentsDataAccess } from '../actions/index';
 
 class StudentsList extends Component {
+  constructor(){
+    this.state={
+      first:"",
+      last:"",
+      email:""
+    }
+  }
   componentDidMount() {
     this.props.getStudents();
   }
+
+  changeHandler = event =>{
+    this.setState(
+      {[event.target.name]:event.target.value}
+    )
+  }
+
+  submitHandler = event =>{
+    const{first, last, email}=this.state;
+    event.preventDefault();
+    this.props.addNewStudent({first,last,email,id:Date.now()})
+  }
+
   render() {
     return (
       <div>
         <h4>New Student</h4>
-        <form onSubmit={this.props.addStudent}>
+        <form onSubmit={this.submitHandler}>
           <input placeholder="First Name"/>
           <input placeholder="Last Name"/>
           <input placeholder="Email"/>
