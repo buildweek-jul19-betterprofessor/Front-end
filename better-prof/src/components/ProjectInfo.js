@@ -1,6 +1,6 @@
 import React from 'react';
 
-
+// Add state for message on project
 const ProjectInfo =() => {
         return (
             <div className="Project-Item-Container">
