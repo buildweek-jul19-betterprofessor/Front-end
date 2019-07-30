@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-
+import {deleteStudent} from "../actions/index"
+import { connect } from 'react-redux';
 
 class Student extends Component {
     render() {
@@ -13,4 +14,10 @@ class Student extends Component {
     }
 }
 
-export default Student
+const mapStateToProps = state => {
+    return {
+      students: state.students
+    }
+  }
+  
+  export default connect(mapStateToProps,{deleteStudent})(Student)

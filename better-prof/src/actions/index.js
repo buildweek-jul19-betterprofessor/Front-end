@@ -9,6 +9,10 @@ export const ADD_STUDENT_START = 'ADD_STUDENT_START';
 export const ADD_STUDENT_SUCCESS = 'ADD_STUDENT_SUCCESS';
 export const ADD_STUDENT_FAIL = 'ADD_STUDENT_FAIL';
 
+export const DELETE_STUDENT_START = 'DELETE_STUDENT_START';
+export const DELETE_STUDENT_SUCCESS = 'DELETE_STUDENT_SUCCESS';
+export const DELETE_STUDENT_FAIL = 'DELETE_STUDENT_FAIL';
+
 export const STUDENT_DATA_ACCESS = 'STUDENT_DATA_ACCESS';
 
 export const getStudents = () => dispatch => {
@@ -35,14 +39,26 @@ export const studentsDataAccess = () => dispatch => {
     });
 };
 
-export const addNewStudent = () => newStudent => dispatch => {
+export const addNewStudent = newStudent => dispatch => {
   dispatch({ type: ADD_STUDENT_START });
-  axios
+  return BetterProfApiBase()
     .post('/students', newStudent)
     .then(response => {
       dispatch({ type: ADD_STUDENT_SUCCESS, payload: response.data });
     })
     .catch(error => {
       dispatch({ type: ADD_STUDENT_FAIL, payload: error });
+    });
+};
+
+export const deleteStudent = studentId => dispatch => {
+  dispatch({ type: DELETE_STUDENT_START });
+  return BetterProfApiBase()
+    .delete(`/students/:${studentId}`)
+    .then(response => {
+      dispatch({ type: DELETE_STUDENT_SUCCESS, payload: response.data });
+    })
+    .catch(error => {
+      dispatch({ type: DELETE_STUDENT_FAIL, payload: error });
     });
 };

@@ -5,12 +5,7 @@ import { addNewStudent } from '../actions';
 class StudentForm extends Component {
   constructor() {
     super();
-    this.state = {
-      firstname: '',
-      lastname: '',
-      email: '',
-      id: Date.now()
-    };
+    this.state = { id: Date.now(), firstname: '', lastname: '', email: '' };
   }
 
   changeHandler = event => {
@@ -19,11 +14,10 @@ class StudentForm extends Component {
   };
 
   submitHandler = event => {
-    const { firstname, lastname, email, id } = this.state;
+    const { id, firstname, lastname, email } = this.state;
     event.preventDefault();
-
-    this.props.addNewStudent({ firstname, lastname, email, id });
-    this.setState({ firstname: '', lastname: '', email: '', id: Date.now() });
+    this.props.addNewStudent({ id, firstname, lastname, email });
+    this.setState({ id: Date.now(), firstname: '', lastname: '', email: '' });
   };
 
   render() {
@@ -58,7 +52,7 @@ class StudentForm extends Component {
 
 const mapStateToProps = state => {
   return {
-    error: state.error
+    students:state.students
   };
 };
 
