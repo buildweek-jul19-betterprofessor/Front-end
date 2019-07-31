@@ -15,6 +15,11 @@ export const DELETE_STUDENT_FAIL = 'DELETE_STUDENT_FAIL';
 
 export const STUDENT_DATA_ACCESS = 'STUDENT_DATA_ACCESS';
 
+export const UPDATE_STUDENT = "UPDATE_STUDENT";
+export const UPDATE_STUDENT_SUCCESS = "UPDATE_STUDENT_SUCCESS";
+export const UPDATE_STUDENT_FAIL = "UPDATE_STUDENT_FAIL";
+
+
 export const getStudents = () => dispatch => {
   dispatch({ type: GET_STUDENTS_START });
   return BetterProfApiBase()
@@ -39,18 +44,17 @@ export const studentsDataAccess = () => dispatch => {
     });
 };
 
-export const addNewStudent = newStudent => dispatch => {
+export const addNewStudent = newStudent => async dispatch => {
   dispatch({ type: ADD_STUDENT_START });
-  const mytoken = localStorage.getItem('token');
-  console.log('mytoken:', mytoken);
-  axios
+  return await BetterProfApiBase()
     .post(
-      'https://betterprofessor.herokuapp.com/api/students',
-      { headers: { "Authorization": mytoken } },
+      '/students',
       newStudent
     )
     .then(response => {
+      console.log(response);
       dispatch({ type: ADD_STUDENT_SUCCESS, payload: response.data });
+      return true;
     })
     .catch(error => {
       console.log(`adding user: ${newStudent}`)
@@ -69,3 +73,23 @@ export const deleteStudent = id => dispatch => {
       dispatch({ type: DELETE_STUDENT_FAIL, payload: error });
     });
 };
+
+export const submitUpdatedStudent = (id, updated) => dispatch => {
+  dispatch({
+    type: UPDATE_STUDENT
+  });
+  return BetterProfApiBase()
+    .put(`/:${id}`, updated)
+    .then(res =>
+      dispatch({
+        type: UPDATE_STUDENT_SUCCESS,
+        payload: res.data
+      })
+    )
+    .catch(error =>
+      dispatch({
+        type: UPDATE_STUDENT_FAIL,
+        payload: error
+      })
+    );
+  };
