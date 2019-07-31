@@ -5,7 +5,7 @@ import { addNewStudent } from '../actions';
 class StudentForm extends Component {
   constructor() {
     super();
-    this.state = { id: Date.now(), firstname: '', lastname: '', email: '' };
+    this.state = { firstname: '', lastname: '', email: '' };
   }
 
   changeHandler = event => {
@@ -14,10 +14,10 @@ class StudentForm extends Component {
   };
 
   submitHandler = event => {
-    const { id, firstname, lastname, email } = this.state;
+    const {firstname, lastname, email } = this.state;
     event.preventDefault();
-    this.props.addNewStudent({ id, firstname, lastname, email });
-    this.setState({ id: Date.now(), firstname: '', lastname: '', email: '' });
+    this.props.addNewStudent({firstname, lastname, email });
+    this.setState({firstname: '', lastname: '', email: '' });
   };
 
   render() {

@@ -51,10 +51,10 @@ export const addNewStudent = newStudent => dispatch => {
     });
 };
 
-export const deleteStudent = studentId => dispatch => {
+export const deleteStudent = id => dispatch => {
   dispatch({ type: DELETE_STUDENT_START });
   return BetterProfApiBase()
-    .delete(`/students/:${studentId}`)
+    .delete(`/students/:${id}`)
     .then(response => {
       dispatch({ type: DELETE_STUDENT_SUCCESS, payload: response.data });
     })
