@@ -41,20 +41,27 @@ export const studentsDataAccess = () => dispatch => {
 
 export const addNewStudent = newStudent => dispatch => {
   dispatch({ type: ADD_STUDENT_START });
-  return BetterProfApiBase()
-    .post('/students', newStudent)
+  const mytoken = localStorage.getItem('token');
+  console.log('mytoken:', mytoken);
+  axios
+    .post(
+      'https://betterprofessor.herokuapp.com/api/students',
+      { headers: { "Authorization": mytoken } },
+      newStudent
+    )
     .then(response => {
       dispatch({ type: ADD_STUDENT_SUCCESS, payload: response.data });
     })
     .catch(error => {
+      console.log(`adding user: ${newStudent}`)
       dispatch({ type: ADD_STUDENT_FAIL, payload: error });
     });
 };
 
-export const deleteStudent = studentId => dispatch => {
+export const deleteStudent = id => dispatch => {
   dispatch({ type: DELETE_STUDENT_START });
   return BetterProfApiBase()
-    .delete(`/students/:${studentId}`)
+    .delete(`/students/:${id}`)
     .then(response => {
       dispatch({ type: DELETE_STUDENT_SUCCESS, payload: response.data });
     })
