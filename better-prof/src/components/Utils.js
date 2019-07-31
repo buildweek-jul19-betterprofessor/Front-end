@@ -1,13 +1,12 @@
-import axios from 'axios'
+import axios from 'axios';
 
 export const BetterProfApiBase = () => {
-    const token = localStorage.getItem('token');
-  
-    return axios.create({
-      headers: {
-        Authorization: token
-      },
- baseURL: 'https://betterprofessor.herokuapp.com/api'
-    });
-  };
-  
+  const token = localStorage.getItem('token');
+
+  return axios.create({
+    // headers: {
+    //   "Authorization": token
+    // },
+    baseURL: 'https://betterprofessor.herokuapp.com/api'
+  });
+};
