@@ -14,9 +14,8 @@ class StudentForm extends Component {
   };
 
   submitHandler = event => {
-    const {firstname, lastname, email } = this.state;
     event.preventDefault();
-    this.props.addNewStudent({firstname, lastname, email });
+    this.props.addNewStudent(this.state);
     this.setState({firstname: '', lastname: '', email: '' });
   };
 
