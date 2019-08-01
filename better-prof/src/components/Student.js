@@ -7,9 +7,11 @@ class Student extends Component {
   render() {
     return (
       <div>
-        <Link to="../components/StudentProfilePageView.js"><h3>Name: {this.props.studentName}</h3></Link>
+        <Link to="../components/StudentProfilePageView.js">
+          <h3>Name: {this.props.studentName}</h3>
+        </Link>
         <p>Email: {this.props.email}</p>
-        <button onClick={()=>(this.props.deleteStudent(this.props.studentId))}>
+        <button onClick={() => this.props.deleteStudent(this.props.studentId)}>
           Delete
         </button>
       </div>

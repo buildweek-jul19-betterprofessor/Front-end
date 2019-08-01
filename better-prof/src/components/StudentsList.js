@@ -4,18 +4,16 @@ import { getStudents } from '../actions/index';
 import Student from './Student';
 
 class StudentsList extends Component {
- 
   componentDidMount() {
     this.props.getStudents();
   }
-
 
   render() {
     return (
       <div>
         <h2>All Students:</h2>
-        {this.props.students.map((student) => {
-          console.log(student)
+        {this.props.students.map(student => {
+          console.log(student);
           return (
             <Student
               key={student.id}
@@ -38,5 +36,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { getStudents}
+  { getStudents }
 )(StudentsList);
