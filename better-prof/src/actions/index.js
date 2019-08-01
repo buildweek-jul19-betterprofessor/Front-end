@@ -63,15 +63,19 @@ export const addNewStudent = newStudent => async dispatch => {
 };
 
 export const deleteStudent = id => dispatch => {
+  console.log("A messsage" , id)
   dispatch({ type: DELETE_STUDENT_START });
   return BetterProfApiBase()
-    .delete(`/students/:${id}`)
+    .delete(`/students/${id}`)
     .then(response => {
-      dispatch({ type: DELETE_STUDENT_SUCCESS, payload: response.data });
+      console.log(response.data)
+      dispatch({ type: DELETE_STUDENT_SUCCESS, payload:id });
     })
+    .then(()=>getStudents()(dispatch))
     .catch(error => {
       dispatch({ type: DELETE_STUDENT_FAIL, payload: error });
     });
+
 };
 
 export const submitUpdatedStudent = (id, updated) => dispatch => {
