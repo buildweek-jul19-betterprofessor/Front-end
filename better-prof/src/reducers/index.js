@@ -6,6 +6,8 @@ import {
   ADD_STUDENT_SUCCESS,
   ADD_STUDENT_FAIL,
   DELETE_STUDENT_START,
+  DELETE_STUDENT_SUCCESS,
+  DELETE_STUDENT_FAIL,
   UPDATE_STUDENT,
   UPDATE_STUDENT_SUCCESS,
   UPDATE_STUDENT_FAIL
@@ -33,6 +35,16 @@ export const reducer = (state = initialState, action) => {
       return {
         ...state,
         deleteStudent:true
+      };
+    case DELETE_STUDENT_SUCCESS:
+      return {
+        ...state,
+        deleteStudent:false
+      };
+    case DELETE_STUDENT_FAIL:
+      return {
+        ...state,
+        deleteStudent: false
       }
     case ADD_STUDENT_START:
       return {
