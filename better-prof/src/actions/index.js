@@ -57,7 +57,7 @@ export const addNewStudent = newStudent => async dispatch => {
       return true;
     })
     .catch(error => {
-      console.log(`adding user: ${newStudent}`)
+      console.log(`adding user${newStudent}`)
       dispatch({ type: ADD_STUDENT_FAIL, payload: error });
     });
 };
