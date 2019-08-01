@@ -14,10 +14,12 @@ class StudentsList extends Component {
     return (
       <div>
         <h2>All Students:</h2>
-        {this.props.students.map((student, i) => {
+        {this.props.students.map((student) => {
+          console.log(student)
           return (
             <Student
-              key={i}
+              key={student.id}
+              studentId={student.id}
               studentName={`${student.firstname} ${student.lastname}`}
               email={student.email}
             />

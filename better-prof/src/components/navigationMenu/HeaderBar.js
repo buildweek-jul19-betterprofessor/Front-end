@@ -22,6 +22,10 @@ const useStyles = makeStyles(theme => ({
 export default function ButtonAppBar() {
   const classes = useStyles();
 
+  const logout = () => {
+    localStorage.removeItem('token')
+  }
+
   return (
     <div className={classes.root}>
       <AppBar position="static">
@@ -31,8 +35,10 @@ export default function ButtonAppBar() {
           <Typography variant="h6" className={classes.title}>
             <Link to="/">Better Professor</Link>
           </Typography>
+          <button onClick={logout}>Logout</button>
           <SimpleMenu/>
         </Toolbar>
+        
       </AppBar>
     </div>
   );

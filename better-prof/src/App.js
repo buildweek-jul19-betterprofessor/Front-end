@@ -10,6 +10,7 @@ import Login from "./components/Login";
 import StudentList from "./components/StudentsList";
 import Register from "./components/Register";
 import Dashboard from "./components/Dashboard";
+import StudentProfilePageView from "./components/StudentProfilePageView";
 
 const token = localStorage.getItem("token");
 
@@ -22,7 +23,8 @@ const App = () => {
         {token ?
      
             (
-              <Route exact path='/student-list' component={StudentList} />
+              <Route exact path='/student-list' component={StudentList}/>
+  
            ) 
            
            
@@ -35,6 +37,7 @@ const App = () => {
            )}
         <Route exact path='/register' component={Register}/>
         <Route exact path='/dashboard' component={Dashboard}/>
+        <Route exact path='/StudentProfilePageView' component={StudentProfilePageView} />
     </div>
   );
 };
