@@ -65,7 +65,7 @@ export const addNewStudent = newStudent => async dispatch => {
 export const deleteStudent = id => dispatch => {
   dispatch({ type: DELETE_STUDENT_START });
   return BetterProfApiBase()
-    .delete(`/students/:${id}`)
+    .delete(`/students/${id}`)
     .then(response => {
       dispatch({ type: DELETE_STUDENT_SUCCESS, payload: response.data });
     })
@@ -79,7 +79,7 @@ export const submitUpdatedStudent = (id, updated) => dispatch => {
     type: UPDATE_STUDENT
   });
   return BetterProfApiBase()
-    .put(`/:${id}`, updated)
+    .put(`/${id}`, updated)
     .then(res =>
       dispatch({
         type: UPDATE_STUDENT_SUCCESS,
