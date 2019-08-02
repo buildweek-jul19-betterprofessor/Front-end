@@ -23,11 +23,8 @@ const App = () => {
         <Route exact path='/register' component={Register}/>
         <Route exact path='/dashboard' component={Dashboard}/>
         <Route exact path='/StudentProfilePageView' component={StudentProfilePageView} />
-<<<<<<< HEAD
         <Route path='/project-list' component={ProjectList}/>
-=======
         <Route path="/update" component={UpdateForm}></Route>
->>>>>>> master
     </div>
   );
 };
