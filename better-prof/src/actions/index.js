@@ -15,10 +15,9 @@ export const DELETE_STUDENT_FAIL = 'DELETE_STUDENT_FAIL';
 
 export const STUDENT_DATA_ACCESS = 'STUDENT_DATA_ACCESS';
 
-export const UPDATE_STUDENT = "UPDATE_STUDENT";
-export const UPDATE_STUDENT_SUCCESS = "UPDATE_STUDENT_SUCCESS";
-export const UPDATE_STUDENT_FAIL = "UPDATE_STUDENT_FAIL";
-
+export const UPDATE_STUDENT = 'UPDATE_STUDENT';
+export const UPDATE_STUDENT_SUCCESS = 'UPDATE_STUDENT_SUCCESS';
+export const UPDATE_STUDENT_FAIL = 'UPDATE_STUDENT_FAIL';
 
 export const getStudents = () => dispatch => {
   dispatch({ type: GET_STUDENTS_START });
@@ -47,43 +46,39 @@ export const studentsDataAccess = () => dispatch => {
 export const addNewStudent = newStudent => async dispatch => {
   dispatch({ type: ADD_STUDENT_START });
   return await BetterProfApiBase()
-    .post(
-      '/students',
-      newStudent
-    )
+    .post('/students', newStudent)
     .then(response => {
       console.log(response);
       dispatch({ type: ADD_STUDENT_SUCCESS, payload: response.data });
       return true;
     })
     .catch(error => {
-      console.log(`adding user: ${newStudent}`)
+      console.log(`adding user${newStudent}`);
       dispatch({ type: ADD_STUDENT_FAIL, payload: error });
     });
 };
 
 export const deleteStudent = id => dispatch => {
-  console.log("A messsage" , id)
+  console.log('A messsage', id);
   dispatch({ type: DELETE_STUDENT_START });
   return BetterProfApiBase()
     .delete(`/students/${id}`)
     .then(response => {
-      console.log(response.data)
-      dispatch({ type: DELETE_STUDENT_SUCCESS, payload:id });
+      console.log(response.data);
+      dispatch({ type: DELETE_STUDENT_SUCCESS, payload: id });
     })
-    .then(()=>getStudents()(dispatch))
+    .then(() => getStudents()(dispatch))
     .catch(error => {
       dispatch({ type: DELETE_STUDENT_FAIL, payload: error });
     });
-
 };
 
-export const submitUpdatedStudent = (id, updated) => dispatch => {
+export const updateStudent = (id, updated) => dispatch => {
   dispatch({
     type: UPDATE_STUDENT
   });
   return BetterProfApiBase()
-    .put(`/:${id}`, updated)
+    .put(`students/${id}`, updated)
     .then(res =>
       dispatch({
         type: UPDATE_STUDENT_SUCCESS,
@@ -96,4 +91,4 @@ export const submitUpdatedStudent = (id, updated) => dispatch => {
         payload: error
       })
     );
-  };
+};
