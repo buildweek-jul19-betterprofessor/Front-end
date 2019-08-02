@@ -11,8 +11,7 @@ import StudentList from "./components/StudentsList";
 import Register from "./components/Register";
 import Dashboard from "./components/Dashboard";
 import StudentProfilePageView from "./components/StudentProfilePageView";
-
-const token = localStorage.getItem("token");
+import ProjectList from './components/ProjectList';
 
 const App = () => {
   return (
@@ -20,24 +19,11 @@ const App = () => {
       <HeaderBar />
       <Route exact path='/' component={HomePage}/>
         <Route exact path='/login' component={Login} />        
-        {token ?
-     
-            (
-              <Route exact path='/student-list' component={StudentList}/>
-  
-           ) 
-           
-           
-           : 
-           
-           (
-             (<div>
-              </div>
-             )
-           )}
+        <Route exact path='/student-list' component={StudentList}/>
         <Route exact path='/register' component={Register}/>
         <Route exact path='/dashboard' component={Dashboard}/>
         <Route exact path='/StudentProfilePageView' component={StudentProfilePageView} />
+        <Route path='/project-list' component={ProjectList}/>
     </div>
   );
 };

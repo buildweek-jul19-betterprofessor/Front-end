@@ -4,6 +4,8 @@ import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import { NavLink } from 'react-router-dom';
 
+const token = localStorage.getItem("token");
+
 export default function SimpleMenu() {
   const [anchorEl, setAnchorEl] = React.useState(null);
 
@@ -13,6 +15,10 @@ export default function SimpleMenu() {
 
   function handleClose() {
     setAnchorEl(null);
+  }
+
+  const logout = () => {
+    localStorage.removeItem('token')
   }
 
   return (
@@ -30,7 +36,11 @@ export default function SimpleMenu() {
         <MenuItem onClick={handleClose}><NavLink to="/">Home</NavLink></MenuItem>
         <MenuItem onClick={handleClose}><NavLink to="/dashboard">My Account</NavLink></MenuItem>
         <MenuItem onClick={handleClose}><NavLink to="/register">Register/Login</NavLink></MenuItem>
-        <MenuItem onClick={handleClose}><NavLink to="/logout">Logout</NavLink></MenuItem>
+          { token ? (
+            <MenuItem onClick={logout}>Logout</MenuItem> 
+            ):
+            (<div></div>)
+      }
       </Menu>
     </div>
   );
