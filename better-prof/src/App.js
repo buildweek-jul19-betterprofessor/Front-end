@@ -4,7 +4,7 @@ import HeaderBar from "./components/navigationMenu/HeaderBar";
 
 
 import "./App.css";
-
+import UpdateForm from "./components/UpdateForm"
 import HomePage from "./components/HomePage";
 import Login from "./components/Login";
 import StudentList from "./components/StudentsList";
@@ -38,6 +38,7 @@ const App = () => {
         <Route exact path='/register' component={Register}/>
         <Route exact path='/dashboard' component={Dashboard}/>
         <Route exact path='/StudentProfilePageView' component={StudentProfilePageView} />
+        <Route path="/update" component={UpdateForm}></Route>
     </div>
   );
 };

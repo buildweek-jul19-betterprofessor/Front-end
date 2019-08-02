@@ -19,6 +19,8 @@ class StudentsList extends Component {
               key={student.id}
               studentId={student.id}
               studentName={`${student.firstname} ${student.lastname}`}
+              firstname={student.firstname}
+              lastname={student.lastname}
               email={student.email}
             />
           );

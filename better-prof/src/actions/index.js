@@ -73,12 +73,12 @@ export const deleteStudent = id => dispatch => {
     });
 };
 
-export const submitUpdatedStudent = (id, updated) => dispatch => {
+export const updateStudent = (id, updated) => dispatch => {
   dispatch({
     type: UPDATE_STUDENT
   });
   return BetterProfApiBase()
-    .put(`/${id}`, updated)
+    .put(`students/${id}`, updated)
     .then(res =>
       dispatch({
         type: UPDATE_STUDENT_SUCCESS,
