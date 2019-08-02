@@ -1,11 +1,15 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
-import { addNewStudent } from '../actions';
+import { updateStudent } from '../actions/index';
 
-class StudentForm extends Component {
+class UpdateForm extends React.Component {
   constructor() {
     super();
-    this.state = { firstname: '', lastname: '', email: '' };
+    this.state = {
+        firstname:"",
+        lastname:"",
+        email:"",
+    };
   }
 
   changeHandler = event => {
@@ -15,33 +19,34 @@ class StudentForm extends Component {
 
   submitHandler = event => {
     event.preventDefault();
-    this.props.addNewStudent(this.state);
+    this.props.updateStudent(this.props.studentId,this.state);
     this.setState({ firstname: '', lastname: '', email: '' });
   };
 
   render() {
     return (
       <div>
-        <h4>New Student</h4>
+        Hello out there!
         <form onSubmit={this.submitHandler}>
           <input
+            placeholder={this.props.firstname}
             name="firstname"
             value={this.state.firstname}
-            placeholder="First Name"
             onChange={this.changeHandler}
           />
           <input
+            placeholder={this.props.lastname}
             name="lastname"
             value={this.state.lastname}
-            placeholder="Last Name"
             onChange={this.changeHandler}
           />
           <input
+            placeholder={this.props.email}
             name="email"
             value={this.state.email}
-            placeholder="Email"
             onChange={this.changeHandler}
           />
+          <button type="submit">Update</button>
         </form>
       </div>
     );
@@ -56,5 +61,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { addNewStudent }
-)(StudentForm);
+  { updateStudent }
+)(UpdateForm);
