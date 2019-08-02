@@ -7,6 +7,7 @@ import Typography from '@material-ui/core/Typography';
 import SimpleMenu from "./MenuHamburger";
 import { Link } from "react-router-dom";
 
+
 const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1,
@@ -19,12 +20,9 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
+
 export default function ButtonAppBar() {
   const classes = useStyles();
-
-  const logout = () => {
-    localStorage.removeItem('token')
-  }
 
   return (
     <div className={classes.root}>
@@ -35,7 +33,6 @@ export default function ButtonAppBar() {
           <Typography variant="h6" className={classes.title}>
             <Link to="/">Better Professor</Link>
           </Typography>
-          <button onClick={logout}>Logout</button>
           <SimpleMenu/>
         </Toolbar>
         
