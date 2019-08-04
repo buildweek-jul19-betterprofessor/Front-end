@@ -6,9 +6,9 @@ class UpdateForm extends React.Component {
   constructor() {
     super();
     this.state = {
-        firstname:"",
-        lastname:"",
-        email:"",
+      firstname: '',
+      lastname: '',
+      email: ''
     };
   }
 
@@ -19,14 +19,14 @@ class UpdateForm extends React.Component {
 
   submitHandler = event => {
     event.preventDefault();
-    this.props.updateStudent(this.props.studentId,this.state);
+    this.props.updateStudent(this.props.studentId, this.state);
     this.setState({ firstname: '', lastname: '', email: '' });
   };
 
   render() {
     return (
       <div>
-        Hello out there!
+        Update Student
         <form onSubmit={this.submitHandler}>
           <input
             placeholder={this.props.firstname}

@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+
 import { getStudents } from '../actions/index';
+
 import Student from './Student';
 
 class StudentsList extends Component {
@@ -13,7 +15,6 @@ class StudentsList extends Component {
       <div>
         <h2>All Students:</h2>
         {this.props.students.map(student => {
-          console.log(student);
           return (
             <Student
               key={student.id}
