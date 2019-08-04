@@ -1,9 +1,7 @@
 import React from "react";
-import { BrowserRouter as Router,  Route, Link } from 'react-router-dom';
+import { BrowserRouter as Route} from 'react-router-dom';
+
 import HeaderBar from "./components/navigationMenu/HeaderBar";
-
-
-import "./App.css";
 import UpdateForm from "./components/UpdateForm"
 import HomePage from "./components/HomePage";
 import Login from "./components/Login";
@@ -12,6 +10,8 @@ import Register from "./components/Register";
 import Dashboard from "./components/Dashboard";
 import StudentProfilePageView from "./components/StudentProfilePageView";
 import ProjectList from './components/ProjectList';
+
+import "./App.css";
 
 const App = () => {
   return (
