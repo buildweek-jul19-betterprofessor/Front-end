@@ -1,25 +1,24 @@
-import React from "react";
+import React from 'react';
+import { Link } from 'react-router-dom';
+
 import IconButton from '@material-ui/core/IconButton';
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
-import SimpleMenu from "./MenuHamburger";
-import { Link } from "react-router-dom";
-
+import SimpleMenu from './MenuHamburger';
 
 const useStyles = makeStyles(theme => ({
   root: {
-    flexGrow: 1,
+    flexGrow: 1
   },
   menuButton: {
-    marginRight: theme.spacing(2),
+    marginRight: theme.spacing(2)
   },
   title: {
-    flexGrow: 1,
-  },
+    flexGrow: 1
+  }
 }));
-
 
 export default function ButtonAppBar() {
   const classes = useStyles();
@@ -28,14 +27,17 @@ export default function ButtonAppBar() {
     <div className={classes.root}>
       <AppBar position="static">
         <Toolbar>
-          <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
-          </IconButton>
+          <IconButton
+            edge="start"
+            className={classes.menuButton}
+            color="inherit"
+            aria-label="menu"
+          />
           <Typography variant="h6" className={classes.title}>
             <Link to="/">Better Professor</Link>
           </Typography>
-          <SimpleMenu/>
+          <SimpleMenu />
         </Toolbar>
-        
       </AppBar>
     </div>
   );

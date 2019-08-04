@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+
 import { addNewStudent } from '../actions';
 
 class StudentForm extends Component {
@@ -42,6 +43,7 @@ class StudentForm extends Component {
             placeholder="Email"
             onChange={this.changeHandler}
           />
+          <button type="submit">Add New Student</button>
         </form>
       </div>
     );
