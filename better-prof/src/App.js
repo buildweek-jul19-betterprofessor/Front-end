@@ -18,8 +18,7 @@ const App = () => {
     <div>
       <HeaderBar />
       <Route exact path='/' component={HomePage}/>
-      {/* <HomePage/> */}
-        <Route exact path='/login' component={Login} />        
+        <Route exact path='/login' component={Login} />
         <Route exact path='/student-list' component={StudentList}/>
         <Route exact path='/register' component={Register}/>
         <Route exact path='/dashboard' component={Dashboard}/>
