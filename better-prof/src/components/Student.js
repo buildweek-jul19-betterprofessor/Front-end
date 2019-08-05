@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { deleteStudent } from '../actions/index';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-
 import UpdateForm from './UpdateForm';
 
 class Student extends Component {
