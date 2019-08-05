@@ -42,6 +42,7 @@ class StudentForm extends Component {
             placeholder="Email"
             onChange={this.changeHandler}
           />
+          <button type="submit">New Student</button>
         </form>
       </div>
     );
