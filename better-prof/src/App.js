@@ -18,13 +18,13 @@ const App = () => {
     <div>
       <HeaderBar />
       <Route exact path='/' component={HomePage}/>
-        <Route exact path='/login' component={Login} />
-        <Route exact path='/student-list' component={StudentList}/>
-        <Route exact path='/register' component={Register}/>
-        <Route exact path='/dashboard' component={Dashboard}/>
-        <Route exact path='/StudentProfilePageView' component={StudentProfilePageView} />
-        <Route path='/project-list' component={ProjectList}/>
-        <Route path="/update" component={UpdateForm}></Route>
+      <Route exact path='/login' component={Login} />
+      <Route exact path='/student-list' component={StudentList}/>
+      <Route exact path='/register' component={Register}/>
+      <Route exact path='/dashboard' component={Dashboard}/>
+      <Route exact path='/StudentProfilePageView' component={StudentProfilePageView} />
+      <Route path='/project-list' component={ProjectList}/>
+      <Route path="/update" component={UpdateForm}></Route>
     </div>
   );
 };
