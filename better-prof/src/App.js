@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Route} from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
 import HeaderBar from "./components/navigationMenu/HeaderBar";
 import UpdateForm from "./components/UpdateForm"
@@ -18,6 +18,7 @@ const App = () => {
     <div>
       <HeaderBar />
       <Route exact path='/' component={HomePage}/>
+      {/* <HomePage/> */}
         <Route exact path='/login' component={Login} />        
         <Route exact path='/student-list' component={StudentList}/>
         <Route exact path='/register' component={Register}/>
